@@ -1,0 +1,9 @@
+@import-normalize;
+
+*, *::after, *::before {
+    font-family: Gotham grounded, sans-serif;
+}
+
+body{
+    background: skyblue;
+}
