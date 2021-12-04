@@ -2,7 +2,7 @@ import React from "react";
 import IngredientList from "./IngredientList";
 
 export default function RecipeItem(props) {
-  const { name, servings, cookTime, instructions, ingredients } = props;
+  const { id, name, servings, cookTime, instructions, ingredients, handleRecipeDelete } = props;
   //Object Destructuring.
   return (
     <div className="recipe">
@@ -10,7 +10,7 @@ export default function RecipeItem(props) {
         <h3 className="recipe__title">{name} </h3>
         <div>
           <button className="btn btn--primary mr-1">Edit</button>
-          <button className="btn btn--danger">Delete</button>
+          <button onClick={() => handleRecipeDelete(id)} className="btn btn--danger">Delete</button>
         </div>
       </div>
       <div className="recipe__row">
