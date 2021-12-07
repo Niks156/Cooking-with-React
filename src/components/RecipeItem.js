@@ -14,14 +14,19 @@ export default function RecipeItem(props) {
   } = props;
   //Object Destructuring.
 
-  const { handleRecipeDelete } = useContext(RecipeContext);
+  const { handleRecipeDelete, handleRecipeSelect } = useContext(RecipeContext);
 
   return (
     <div className="recipe">
       <div className="recipe__header">
         <h3 className="recipe__title">{name} </h3>
         <div>
-          <button className="btn btn--primary mr-1">Edit</button>
+          <button 
+          onClick={() => handleRecipeSelect(id)}
+          className="btn btn--primary mr-1"
+          >
+            Edit
+          </button>
           <button
             onClick={() => handleRecipeDelete(id)}
             className="btn btn--danger"

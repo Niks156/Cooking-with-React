@@ -1,16 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import RecepieList from "./RecipeList";
 import "../css/app.css";
 import { v4 as uuidv4 } from "uuid";
+import RecipeEdit from "./RecipeEdit";
 
 export const RecipeContext = React.createContext();
 
 function App() {
+  const [selectedRecipeId, setSelectedRecipeId] = useState();
   const [recipe, setRecipe] = useState(sampleRecipes);
+  const selectedRecipe = recipe.find(
+    (recipe) => recipe.id === selectedRecipeId
+  );
+  const Local_Storage_key = "CWR.Recipe";
+
+  // It will execute only once and that is when the page is loaded.
+  useEffect(() => {
+    const recipejson = localStorage.getItem(Local_Storage_key);
+    if (recipejson != null) setRecipe(JSON.parse(recipejson));
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem(Local_Storage_key, JSON.stringify(recipe));
+  }, [recipe]);
 
   const funcrecipecontext = {
     handleRecipeAdd,
     handleRecipeDelete,
+    handleRecipeSelect
   };
 
   function handleRecipeAdd() {
@@ -29,9 +46,14 @@ function App() {
     setRecipe(recipe.filter((currentrecipe) => currentrecipe.id !== id));
   }
 
+  function handleRecipeSelect(id) {
+    setSelectedRecipeId(id);
+  }
+
   return (
     <RecipeContext.Provider value={funcrecipecontext}>
       <RecepieList recipes={recipe} />
+      {selectedRecipe && <RecipeEdit recipe={selectedRecipe}/>}
     </RecipeContext.Provider>
   );
 }
