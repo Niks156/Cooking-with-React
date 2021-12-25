@@ -10,7 +10,6 @@ export default function RecipeItem(props) {
     cookTime,
     instructions,
     ingredients,
-    // handleRecipeDelete
   } = props;
   //Object Destructuring.
 

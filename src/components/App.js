@@ -27,22 +27,26 @@ function App() {
   const funcrecipecontext = {
     handleRecipeAdd,
     handleRecipeDelete,
-    handleRecipeSelect
+    handleRecipeSelect,
+    handleRecipeChange,
   };
 
   function handleRecipeAdd() {
     const newrecipe = {
       id: uuidv4(),
       name: "new",
-      servings: 2,
-      cookTime: "1:10",
-      instructions: "insturct",
-      ingredients: [{ id: uuidv4(), name: "ingred1", amount: "1 pounds" }],
+      servings: 1,
+      cookTime: "",
+      instructions: "",
+      ingredients: [{ id: uuidv4(), name: "", amount: " " }],
     };
+    setSelectedRecipeId(newrecipe.id);
     setRecipe([...recipe, newrecipe]);
   }
 
   function handleRecipeDelete(id) {
+    if (selectedRecipeId != null && selectedRecipeId === id)
+      setSelectedRecipeId(undefined);
     setRecipe(recipe.filter((currentrecipe) => currentrecipe.id !== id));
   }
 
@@ -50,10 +54,17 @@ function App() {
     setSelectedRecipeId(id);
   }
 
+  function handleRecipeChange(id, recipenew) {
+    const newRecipes = [...recipe];
+    const index = newRecipes.findIndex((r) => r.id === id);
+    newRecipes[index] = recipenew;
+    setRecipe(newRecipes);
+  }
+
   return (
     <RecipeContext.Provider value={funcrecipecontext}>
       <RecepieList recipes={recipe} />
-      {selectedRecipe && <RecipeEdit recipe={selectedRecipe}/>}
+      {selectedRecipe && <RecipeEdit recipe={selectedRecipe} />}
     </RecipeContext.Provider>
   );
 }
