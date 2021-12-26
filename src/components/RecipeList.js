@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import RecipeItem from "./RecipeItem";
 import { RecipeContext } from "./App";
-import RecipeSearch from "./RecipeSearch";
+// import RecipeSearch from "./RecipeSearch";
 
 export default function RecipeList({ recipes }) {
   const { handleRecipeAdd } = useContext(RecipeContext);
   return (
     <div className="recipe-list">
-      <RecipeSearch {...recipes}/>
+      {/* <RecipeSearch {...recipes}/> */}
       <div>
         {recipes.map((recipe) => {
           return <RecipeItem key={recipe.id} {...recipe} />;
