@@ -33,7 +33,7 @@ export default function RecipeList({ recipes }) {
               recipe.name.toLowerCase().includes(searchTerm.toLowerCase())
             ) {
               return recipe;
-            }
+            } else return recipe;
           })
           .map((recipe) => {
             return <RecipeItem key={recipe.id} {...recipe} />;

@@ -29,7 +29,6 @@ function App() {
     handleRecipeDelete,
     handleRecipeSelect,
     handleRecipeChange,
-    handleRecipeRender
   };
 
   function handleRecipeAdd() {
@@ -60,12 +59,6 @@ function App() {
     const index = newRecipes.findIndex((r) => r.id === id);
     newRecipes[index] = recipenew;
     setRecipe(newRecipes);
-  }
-
-  function handleRecipeRender(id) {
-    const searchedRecipes = [...recipe];
-    const renderRecipe = searchedRecipes.filter((r) => r.id === id);
-    setRecipe(renderRecipe);
   }
 
   return (
