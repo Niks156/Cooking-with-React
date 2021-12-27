@@ -5,7 +5,7 @@ import { RecipeContext } from "./App";
 import "../css/recipe-search.css";
 
 export default function RecipeList({ recipes }) {
-  const { handleRecipeAdd, handleRecipeRender } = useContext(RecipeContext);
+  const { handleRecipeAdd } = useContext(RecipeContext);
   const [searchTerm, setsearchTerm] = useState("");
 
   return (
@@ -16,7 +16,7 @@ export default function RecipeList({ recipes }) {
           <input
             type="text"
             placeholder="Search recipes"
-            onchange={(e) => setsearchTerm(e.target.value)}
+            onChange={(e) => setsearchTerm(e.target.value)}
           />
         </span>
         <span>
@@ -33,7 +33,7 @@ export default function RecipeList({ recipes }) {
               recipe.name.toLowerCase().includes(searchTerm.toLowerCase())
             ) {
               return recipe;
-            } else return recipe;
+            }
           })
           .map((recipe) => {
             return <RecipeItem key={recipe.id} {...recipe} />;

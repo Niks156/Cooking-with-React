@@ -5,10 +5,7 @@
     align-items: center;
     margin-top: 10px;
 }
-/* .input-style {
-    padding-left: 0px;
-    margin-top: 2px; 
-} */
+
 .input-style input{
     width: 350px;
     height: 40px;
