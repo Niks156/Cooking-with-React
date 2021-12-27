@@ -32,7 +32,7 @@ export default function RecipeList({ recipes }) {
             } else if (
               recipe.name.toLowerCase().includes(searchTerm.toLowerCase())
             ) {
-              return handleRecipeRender(recipe.id);
+              return recipe;
             } else return recipe;
           })
           .map((recipe) => {
