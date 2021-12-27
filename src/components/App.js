@@ -14,11 +14,11 @@ function App() {
   );
   const Local_Storage_key = "CWR.Recipe";
 
-  // It will execute only once and that is when the page is loaded.
   useEffect(() => {
     const recipejson = localStorage.getItem(Local_Storage_key);
     if (recipejson != null) setRecipe(JSON.parse(recipejson));
   }, []);
+  // It will execute only once and that is when the page is loaded.
 
   useEffect(() => {
     localStorage.setItem(Local_Storage_key, JSON.stringify(recipe));
@@ -29,6 +29,7 @@ function App() {
     handleRecipeDelete,
     handleRecipeSelect,
     handleRecipeChange,
+    handleRecipeRender
   };
 
   function handleRecipeAdd() {
@@ -59,6 +60,12 @@ function App() {
     const index = newRecipes.findIndex((r) => r.id === id);
     newRecipes[index] = recipenew;
     setRecipe(newRecipes);
+  }
+
+  function handleRecipeRender(id) {
+    const searchedRecipes = [...recipe];
+    const renderRecipe = searchedRecipes.filter((r) => r.id === id);
+    setRecipe(renderRecipe);
   }
 
   return (

@@ -1,0 +1,18 @@
+.recipe-search-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+/* .input-style {
+    padding-left: 0px;
+    margin-top: 2px; 
+} */
+.input-style input{
+    width: 350px;
+    height: 40px;
+    padding-left: 8px;
+    font-size: 20px;
+    border-radius: 5px;
+}
