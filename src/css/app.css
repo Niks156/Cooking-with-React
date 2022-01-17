@@ -1,0 +1,40 @@
+@import-normalize;
+@import "fonts.css";
+@import "recipe-list.css";
+@import "button.css";
+@import "ingredient-list.css";
+@import "recipe.css";
+@import "recipe-edit.css";
+@import "recipe-search.css";
+
+*,
+*::after,
+*::before {
+  font-family: Gotham Rounded, sans-serif;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 20px;
+}
+/*Here font of almost everything changes except the font of button as the browser defaults the font size of the button.*/
+
+body {
+  padding: 0;
+  margin: 0;
+  background: #b24592; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #f15f79,
+    #b24592
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #f15f79,
+    #b24592
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.mr-1 {
+  margin-right: 5px;
+}
