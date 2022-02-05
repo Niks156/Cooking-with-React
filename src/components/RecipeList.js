@@ -34,6 +34,7 @@ export default function RecipeList({ recipes }) {
             ) {
               return recipe;
             }
+            else return recipe;
           })
           .map((recipe) => {
             return <RecipeItem key={recipe.id} {...recipe} />;
