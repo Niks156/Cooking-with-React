@@ -10,22 +10,21 @@ export default function RecipeList({ recipes }) {
   const [searchTerm, setsearchTerm] = useState("");
 
   useEffect(() => {
-    {
-      recipes
-        .filter((recipe) => {
-          if (searchTerm === "") {
-            return recipe;
-          } else if (
-            recipe.name.toLowerCase().includes(searchTerm.toLowerCase()) === 1
-          ) {
-            return recipe;
-          } else return recipe;
-        })
-        .map((recipe) => {
-          return <RecipeItem key={recipe.id} {...recipe} />;
-        });
-    }
-  }, [searchTerm]);
+    recipes
+      .filter((recipe) => {
+        if (searchTerm === "") {
+          return recipe;
+        } else if (
+          recipe.name.toLowerCase().includes(searchTerm.toLowerCase()) === 1
+        ) {
+          return recipe;
+        } 
+        return recipe;
+      })
+      .map((recipe) => {
+        return <RecipeItem key={recipe.id} {...recipe} />;
+      });
+  }, [recipes, searchTerm]);
 
   return (
     <div className="recipe-list">
@@ -47,7 +46,9 @@ export default function RecipeList({ recipes }) {
           .filter((recipe) => {
             if (searchTerm === "") {
               return recipe;
-            } else if (recipe.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+            } else if (
+              recipe.name.toLowerCase().includes(searchTerm.toLowerCase())
+            ) {
               return recipe;
             }
           })
