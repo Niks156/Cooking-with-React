@@ -18,13 +18,12 @@ export default function RecipeList({ recipes }) {
           recipe.name.toLowerCase().includes(searchTerm.toLowerCase()) === 1
         ) {
           return recipe;
-        } 
-        return recipe;
+        } return recipe;
       })
       .map((recipe) => {
         return <RecipeItem key={recipe.id} {...recipe} />;
       });
-  }, [recipes, searchTerm]);
+  }, [recipes,searchTerm]);
 
   return (
     <div className="recipe-list">
@@ -51,6 +50,7 @@ export default function RecipeList({ recipes }) {
             ) {
               return recipe;
             }
+            return false;
           })
           .map((recipe) => {
             return <RecipeItem key={recipe.id} {...recipe} />;
