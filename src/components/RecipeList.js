@@ -1,9 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import RecipeItem from "./RecipeItem";
 import { RecipeContext } from "./App";
 // import RecipeSearch from "./RecipeSearch";
 import "../css/recipe-search.css";
-import { useEffect } from "react/cjs/react.development";
 
 export default function RecipeList({ recipes }) {
   const { handleRecipeAdd } = useContext(RecipeContext);
